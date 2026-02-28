@@ -1,3 +1,5 @@
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/available_parts_list.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/custom_home_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -16,10 +18,17 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 48.0, left: 16.0, right: 16.0),
+      child: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            CustomHomeAppBar(),
+            const SizedBox(height: 32),
+             AvailablePartsList(),
+          ],
+        ),
+      ),
     );
   }
 }
