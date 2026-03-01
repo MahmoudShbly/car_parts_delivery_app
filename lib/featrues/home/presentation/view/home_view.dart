@@ -1,5 +1,7 @@
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/available_parts_list.dart';
+import 'package:car_parts_delivery_app/core/utils/styles.dart';
 import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/custom_home_app_bar.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/home_banner_slider.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/order_button.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -7,9 +9,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: HomeViewBody(),
-    );
+    return Scaffold(body: HomeViewBody());
   }
 }
 
@@ -25,7 +25,14 @@ class HomeViewBody extends StatelessWidget {
           children: <Widget>[
             CustomHomeAppBar(),
             const SizedBox(height: 32),
-             AvailablePartsList(),
+            HomeBannerSlider(),
+            const SizedBox(height: 32),
+            OrderButton(),
+            const SizedBox(height: 16),
+            Text(
+              'اطلب أي قطعة لأي سيارة بسهولة و سنوفرها لك في أسرع وقت ان شاء الله',
+              style: Styles.textStyle18,
+            ),
           ],
         ),
       ),

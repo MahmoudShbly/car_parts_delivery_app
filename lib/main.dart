@@ -43,7 +43,6 @@ class MainView extends StatelessWidget {
     List<Widget> screens = [
       HomeView(),
       Container(color: Colors.green),
-      Container(color: Colors.yellow),
       Container(color: Colors.purple),
     ];
 
@@ -92,12 +91,7 @@ List<PersistentBottomNavBarItem> get navBarItems => [
     inactiveColorPrimary: Colors.grey,
   ),
 
-  PersistentBottomNavBarItem(
-    icon: const Icon(FontAwesomeIcons.gears),
-    title: "طلباتي",
-    activeColorPrimary: AppColors.secondaryColor,
-    inactiveColorPrimary: Colors.grey,
-  ),
+
   PersistentBottomNavBarItem(
     icon: const Icon(FontAwesomeIcons.solidBell),
     title: "الاشعارات",

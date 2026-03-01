@@ -23,6 +23,7 @@ class Styles {
   static const textStyle18 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.normal,
+    color: Colors.white
   );
   
   static const textStyle16 = TextStyle(
