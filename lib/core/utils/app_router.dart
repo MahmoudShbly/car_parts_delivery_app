@@ -1,4 +1,4 @@
-import 'package:car_parts_delivery_app/main.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/home_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
@@ -9,7 +9,7 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const MainView(),
+        builder: (context, state) => const HomeView(),
       ),
     ],
   );

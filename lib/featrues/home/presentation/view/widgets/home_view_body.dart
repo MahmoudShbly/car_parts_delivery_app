@@ -1,6 +1,7 @@
 import 'package:car_parts_delivery_app/core/utils/styles.dart';
 import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/custom_home_app_bar.dart';
 import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/home_banner_slider.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/current_order_section.dart';
 import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/order_button.dart';
 import 'package:flutter/material.dart';
 
@@ -21,14 +22,17 @@ class HomeViewBody extends StatelessWidget {
             OrderButton(),
             const SizedBox(height: 16),
             Text(
-              'اطلب أي قطعة لأي سيارة بسهولة و سنوفرها لك في أسرع وقت ان شاء الله',
+              'اطلب أي قطعة لأي سيارة بسهولة و سنوفرها لك في أسرع وقت إن شاء الله',
               style: Styles.textStyle18,
             ),
+            const SizedBox(height: 32),
+            const LastOrderSection(),
+            SizedBox(
+              height: 18,
+            )
           ],
         ),
       ),
     );
   }
 }
-
-

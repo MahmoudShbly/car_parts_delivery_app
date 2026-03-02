@@ -12,6 +12,10 @@ class CustomHomeAppBar extends StatelessWidget {
         Text('مرحبا احمد', style: Styles.textStyle26),
         const Spacer(),
         Icon(FontAwesomeIcons.solidBell, color: Colors.white, size: 24),
+        SizedBox(
+          width: 16,
+        ),
+        Icon(FontAwesomeIcons.gears, color: Colors.white, size: 22),
       ],
     );
   }
