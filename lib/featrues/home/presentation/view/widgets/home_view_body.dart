@@ -11,7 +11,7 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      // إضافة التمرير للصفحة كاملة
+      //TODO refoctor the scroll to NestedScrollView
       child: Padding(
         padding: const EdgeInsets.only(top: 48.0, left: 16.0, right: 16.0),
         child: Column(
@@ -27,9 +27,8 @@ class HomeViewBody extends StatelessWidget {
               style: Styles.textStyle18,
             ),
             const SizedBox(height: 32),
-            // هنا يجب تحديد ارتفاع للقسم الذي يحتوي على TabBar
             SizedBox(
-              height: 500, // حدد ارتفاعاً مناسباً ليظهر الـ TabBarView
+              height: 500, 
               child: const MyOrderSection(),
             ),
           ],

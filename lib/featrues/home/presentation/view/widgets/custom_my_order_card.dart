@@ -1,8 +1,7 @@
 import 'package:car_parts_delivery_app/core/utils/app_colors.dart';
-import 'package:car_parts_delivery_app/core/utils/app_dialog.dart';
 import 'package:car_parts_delivery_app/core/utils/styles.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/order_state_cancel_section.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class CustomMyOrderCard extends StatelessWidget {
   const CustomMyOrderCard({super.key});
@@ -40,67 +39,11 @@ class CustomMyOrderCard extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
               Spacer(),
-              OrderStateSection(),
+              OrderStateCancelSection(),
             ],
           ),
         ),
       ),
-    );
-  }
-}
-
-class OrderStateSection extends StatelessWidget {
-  const OrderStateSection({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        GestureDetector(
-          onTap: () {},
-          child: Container(
-            padding: EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              color: AppColors.secondaryColor,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Text(
-              'قيد المعاجة',
-              style: Styles.textStyle14.copyWith(color: Colors.white),
-            ),
-          ),
-        ),
-        Spacer(),
-        GestureDetector(
-          onTap: () {
-            showAppDialog(
-              context: context,
-              title: const Text(
-                'هل انت متأكد من الغاء الطلب؟',
-                style: Styles.textStyle26,
-              ),
-              onConfirm: () {
-                GoRouter.of(context).pop();
-              },
-              confirmText: 'نعم',
-              cancelText: 'لا',
-              cancelColor: Colors.red,
-              confirmColor: AppColors.secondaryColor,
-            );
-          },
-          child: Container(
-            padding: EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              color: Colors.red,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Text(
-              'الغاء الطلب',
-              style: Styles.textStyle14.copyWith(color: Colors.white),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

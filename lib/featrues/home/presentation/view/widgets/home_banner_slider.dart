@@ -21,7 +21,7 @@ class HomeBannerSlider extends StatelessWidget {
       options: CarouselOptions(
         height: 180.0,
         autoPlay: true,
-        autoPlayInterval: Duration(seconds: 4),
+        autoPlayInterval: Duration(seconds: 3),
         viewportFraction: 1,
         aspectRatio: 16 / 9,
       ),

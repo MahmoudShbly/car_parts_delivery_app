@@ -10,11 +10,10 @@ class MyOrderSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.max, // لجعل العمود يأخذ أقل مساحة ممكنة
+      mainAxisSize: MainAxisSize.max, 
       children: <Widget>[
         Text('طلباتي', style: Styles.textStyle26),
         const SizedBox(height: 24),
-        // نستخدم SizedBox بارتفاع محدد بدلاً من Expanded لتجنب أخطاء التخطيط
         const SizedBox(
           height: 400, 
           child: CustomTabBar(),
@@ -32,7 +31,7 @@ class MyOrderListView extends StatelessWidget {
     return Expanded(
       child: ListView.builder(
         itemCount: 5, 
-        // نغير التمرير ليكون متاحاً داخل الـ TabBarView
+       
         physics: const BouncingScrollPhysics(), 
         itemBuilder: (context, index) {
           return const CustomMyOrderCard(); 

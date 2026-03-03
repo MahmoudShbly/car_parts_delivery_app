@@ -20,7 +20,9 @@ class CustomHomeAppBar extends StatelessWidget {
           icon: Icon(FontAwesomeIcons.solidBell, color: Colors.white, size: 24),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            GoRouter.of(context).push(AppRouter.kSettingView);
+          },
           icon: Icon(FontAwesomeIcons.gears, color: Colors.white, size: 22),
         ),
       ],

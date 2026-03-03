@@ -1,4 +1,5 @@
 import 'package:car_parts_delivery_app/core/utils/app_colors.dart';
+import 'package:car_parts_delivery_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormFieldComponent extends StatelessWidget {
@@ -22,6 +23,7 @@ class CustomTextFormFieldComponent extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: TextFormField(
+        style: Styles.textStyle16,
         cursorColor: AppColors.secondaryColor,
         keyboardType:type ,
         validator: isRequired
@@ -37,6 +39,7 @@ class CustomTextFormFieldComponent extends StatelessWidget {
         onTap: onTap,
         textDirection: TextDirection.rtl,
         decoration: InputDecoration(
+          focusedBorder:OutlineInputBorder(borderSide: BorderSide(color: AppColors.secondaryColor)) ,
           hintText: hint,
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         ),
