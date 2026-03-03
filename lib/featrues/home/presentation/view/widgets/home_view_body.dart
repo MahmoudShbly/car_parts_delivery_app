@@ -10,9 +10,10 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 48.0, left: 16.0, right: 16.0),
-      child: SingleChildScrollView(
+    return SingleChildScrollView(
+      // إضافة التمرير للصفحة كاملة
+      child: Padding(
+        padding: const EdgeInsets.only(top: 48.0, left: 16.0, right: 16.0),
         child: Column(
           children: <Widget>[
             CustomHomeAppBar(),
@@ -26,10 +27,11 @@ class HomeViewBody extends StatelessWidget {
               style: Styles.textStyle18,
             ),
             const SizedBox(height: 32),
-            const LastOrderSection(),
+            // هنا يجب تحديد ارتفاع للقسم الذي يحتوي على TabBar
             SizedBox(
-              height: 18,
-            )
+              height: 500, // حدد ارتفاعاً مناسباً ليظهر الـ TabBarView
+              child: const MyOrderSection(),
+            ),
           ],
         ),
       ),

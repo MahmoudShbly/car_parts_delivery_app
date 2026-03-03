@@ -11,13 +11,19 @@ class CustomNotificationCard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 8),
+        decoration: BoxDecoration(
+
+          color: AppColors.primaryColor.withValues(alpha: 0.5),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: AppColors.secondaryColor),
+        ),
         padding: const EdgeInsets.all(15),
-        color: AppColors.primaryColor.withValues(alpha: 0.5),
+        
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            
-         
+
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,9 +44,8 @@ class CustomNotificationCard extends StatelessWidget {
                   const SizedBox(height: 10),
                   Text(
                     '1س',
-                    style: Styles.textStyle16.copyWith(
+                    style: Styles.textStyle14.copyWith(
                       color: Colors.grey,
-                      fontSize: 14,
                     ),
                   ),
                 ],

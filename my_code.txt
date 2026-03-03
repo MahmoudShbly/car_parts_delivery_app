@@ -95,18 +95,23 @@ Future<T?> showAppDialog<T>({
   );
 }
 ===== C:\Users\DELL\StudioProjects\car_parts_delivery_app\lib\core\utils\app_router.dart =====
-import 'package:car_parts_delivery_app/main.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/home_view.dart';
+import 'package:car_parts_delivery_app/featrues/notification/presentation/views/notification_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
-  
+   static const String kNotificationView = '/NotificationView';
 
 
   static final router = GoRouter(
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const MainView(),
+        builder: (context, state) => const HomeView(),
+      ),
+      GoRoute(
+        path: kNotificationView,
+        builder: (context, state) => const NotificationView(),
       ),
     ],
   );
@@ -134,6 +139,7 @@ class Styles {
   static const textStyle20 = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.normal,
+    color: Colors.white
   );
   static const textStyle18 = TextStyle(
     fontSize: 18,
@@ -144,10 +150,22 @@ class Styles {
   static const textStyle16 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.normal,
+        color: Colors.white
+
+    
+  );
+  static const textStyle14 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: Colors.white
+    
+    
   );
   static const textStyle12 = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.normal,
+        color: Colors.white
+
     
   );
 }
@@ -242,7 +260,7 @@ class CustomTextFormFieldComponent extends StatelessWidget {
 }
 ===== C:\Users\DELL\StudioProjects\car_parts_delivery_app\lib\featrues\home\presentation\view\widgets\available_parts_list.dart =====
 import 'package:car_parts_delivery_app/core/utils/styles.dart';
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/custom_last_order_card.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/custom_my_order_card.dart';
 import 'package:flutter/material.dart';
 
 class AvailablePartsList extends StatelessWidget {
@@ -260,7 +278,7 @@ class AvailablePartsList extends StatelessWidget {
           physics: NeverScrollableScrollPhysics(),
           itemCount: 5,
           itemBuilder: (context, index) {
-            return const CustomLastOrderCard();
+            return const CustomMyOrderCard();
           },
         ),
         SizedBox( height: 16)
@@ -270,9 +288,11 @@ class AvailablePartsList extends StatelessWidget {
   }
 }
 ===== C:\Users\DELL\StudioProjects\car_parts_delivery_app\lib\featrues\home\presentation\view\widgets\custom_home_app_bar.dart =====
+import 'package:car_parts_delivery_app/core/utils/app_router.dart';
 import 'package:car_parts_delivery_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
   const CustomHomeAppBar({super.key});
@@ -283,36 +303,64 @@ class CustomHomeAppBar extends StatelessWidget {
       children: <Widget>[
         Text('Ù…Ø±Ø­Ø¨Ø§ Ø§Ø­Ù…Ø¯', style: Styles.textStyle26),
         const Spacer(),
-        Icon(FontAwesomeIcons.solidBell, color: Colors.white, size: 24),
+        IconButton(
+          onPressed: () {
+            GoRouter.of(context).push(AppRouter.kNotificationView);
+          },
+          icon: Icon(FontAwesomeIcons.solidBell, color: Colors.white, size: 24),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: Icon(FontAwesomeIcons.gears, color: Colors.white, size: 22),
+        ),
       ],
     );
   }
 }
-===== C:\Users\DELL\StudioProjects\car_parts_delivery_app\lib\featrues\home\presentation\view\widgets\custom_last_order_card.dart =====
+===== C:\Users\DELL\StudioProjects\car_parts_delivery_app\lib\featrues\home\presentation\view\widgets\custom_my_order_card.dart =====
+import 'package:car_parts_delivery_app/core/utils/app_colors.dart';
+import 'package:car_parts_delivery_app/core/utils/app_dialog.dart';
 import 'package:car_parts_delivery_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class CustomLastOrderCard extends StatelessWidget {
-  const CustomLastOrderCard({super.key});
+class CustomMyOrderCard extends StatelessWidget {
+  const CustomMyOrderCard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 160,
       child: Card(
-        color: Colors.grey,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        color: const Color.fromARGB(255, 14, 38, 70),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+          side: BorderSide(color: AppColors.secondaryColor),
+        ),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.only(
+            bottom: 10,
+            left: 16,
+            right: 16,
+            top: 16,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Text('Ø§Ø³Ù… Ø§Ù„Ù‚Ø·Ø¹Ø©', style: Styles.textStyle20),
-              const SizedBox(height: 8),
+              Text(
+                'Ø§Ø³Ù… Ø§Ù„Ù‚Ø·Ø¹Ø©',
+                style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold),
+              ),
               Text('Ø§Ù„Ù…ÙˆØ¯ÙŠÙ„', style: Styles.textStyle18),
-              const SizedBox(height: 8),
-              Text('ÙˆØµÙ Ù…Ø®ØªØµØ± Ù„Ù„Ù‚Ø·Ø¹Ø©', style: Styles.textStyle16),
+              Text(
+                'ÙˆØµÙ Ù…Ø®ØªØµØ± Ù„Ù„Ù‚Ø·Ø¹Ø©',
+                style: Styles.textStyle16,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              Spacer(),
+              OrderStateSection(),
             ],
           ),
         ),
@@ -320,6 +368,146 @@ class CustomLastOrderCard extends StatelessWidget {
     );
   }
 }
+
+class OrderStateSection extends StatelessWidget {
+  const OrderStateSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        GestureDetector(
+          onTap: () {},
+          child: Container(
+            padding: EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              color: AppColors.secondaryColor,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(
+              'Ù‚ÙŠØ¯ Ø§Ù„Ù…Ø¹Ø§Ø¬Ø©',
+              style: Styles.textStyle14.copyWith(color: Colors.white),
+            ),
+          ),
+        ),
+        Spacer(),
+        GestureDetector(
+          onTap: () {
+            showAppDialog(
+              context: context,
+              title: const Text(
+                'Ù‡Ù„ Ø§Ù†Øª Ù…ØªØ£ÙƒØ¯ Ù…Ù† Ø§Ù„ØºØ§Ø¡ Ø§Ù„Ø·Ù„Ø¨ØŸ',
+                style: Styles.textStyle26,
+              ),
+              onConfirm: () {
+                GoRouter.of(context).pop();
+              },
+              confirmText: 'Ù†Ø¹Ù…',
+              cancelText: 'Ù„Ø§',
+              cancelColor: Colors.red,
+              confirmColor: AppColors.secondaryColor,
+            );
+          },
+          child: Container(
+            padding: EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              color: Colors.red,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(
+              'Ø§Ù„ØºØ§Ø¡ Ø§Ù„Ø·Ù„Ø¨',
+              style: Styles.textStyle14.copyWith(color: Colors.white),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+===== C:\Users\DELL\StudioProjects\car_parts_delivery_app\lib\featrues\home\presentation\view\widgets\custom_tab_bar.dart =====
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/my_order_section.dart';
+import 'package:flutter/material.dart';
+
+class CustomTabBar extends StatefulWidget {
+  const CustomTabBar({super.key});
+
+  @override
+  State<CustomTabBar> createState() => _CustomTabBarState();
+}
+
+class _CustomTabBarState extends State<CustomTabBar>
+    with SingleTickerProviderStateMixin {
+  late TabController _controller;
+  @override
+  void initState() {
+    _controller = TabController(length: 2, vsync: this);
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Container(
+          height: 50,
+          decoration: BoxDecoration(
+            color: Colors.grey.shade200,
+            borderRadius: BorderRadius.circular(12),
+          ),
+
+          child: TabBar(
+            indicator: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.black,
+            dividerColor: Colors.transparent,
+            indicatorSize: TabBarIndicatorSize.tab,
+            labelStyle: TextStyle(fontWeight: FontWeight.bold),
+            tabs: [
+              SizedBox(
+                width: double.infinity,
+                child: Text(
+                  'Ø§Ù„Ø­Ø§Ù„ÙŠØ©',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18),
+                ),
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: Text(
+                  'Ø§Ù„Ø³Ø§Ø¨Ù‚Ø©',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18),
+                ),
+              ),
+            ],
+            controller: _controller,
+          ),
+        ),
+        SizedBox(height: 22),
+        Expanded(
+          child: TabBarView(
+            controller: _controller,
+            children: [
+              Align(
+                alignment: Alignment.topCenter,
+                child: MyOrderListView(),
+              ),
+              Align(
+                alignment: Alignment.topCenter,
+                child: MyOrderListView(),
+              ),
+              
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
 ===== C:\Users\DELL\StudioProjects\car_parts_delivery_app\lib\featrues\home\presentation\view\widgets\home_banner_slider.dart =====
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -355,7 +543,7 @@ class HomeBannerSlider extends StatelessWidget {
 import 'package:car_parts_delivery_app/core/utils/styles.dart';
 import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/custom_home_app_bar.dart';
 import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/home_banner_slider.dart';
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/last_order_section.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/my_order_section.dart';
 import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/order_button.dart';
 import 'package:flutter/material.dart';
 
@@ -366,33 +554,32 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 48.0, left: 16.0, right: 16.0),
-      child: SingleChildScrollView(
-        child: Expanded(
-          child: Column(
-            children: <Widget>[
-              CustomHomeAppBar(),
-              const SizedBox(height: 32),
-              HomeBannerSlider(),
-              const SizedBox(height: 32),
-              OrderButton(),
-              const SizedBox(height: 16),
-              Text(
-                'Ø§Ø·Ù„Ø¨ Ø£ÙŠ Ù‚Ø·Ø¹Ø© Ù„Ø£ÙŠ Ø³ÙŠØ§Ø±Ø© Ø¨Ø³Ù‡ÙˆÙ„Ø© Ùˆ Ø³Ù†ÙˆÙØ±Ù‡Ø§ Ù„Ùƒ ÙÙŠ Ø£Ø³Ø±Ø¹ ÙˆÙ‚Øª Ø¥Ù† Ø´Ø§Ø¡ Ø§Ù„Ù„Ù‡',
-                style: Styles.textStyle18,
-              ),
-              const SizedBox(height: 32),
-              const LastOrderSection(),
-          
-            ],
+      child: Column(
+        children: <Widget>[
+          CustomHomeAppBar(),
+          const SizedBox(height: 32),
+          HomeBannerSlider(),
+          const SizedBox(height: 32),
+          OrderButton(),
+          const SizedBox(height: 16),
+          Text(
+            'Ø§Ø·Ù„Ø¨ Ø£ÙŠ Ù‚Ø·Ø¹Ø© Ù„Ø£ÙŠ Ø³ÙŠØ§Ø±Ø© Ø¨Ø³Ù‡ÙˆÙ„Ø© Ùˆ Ø³Ù†ÙˆÙØ±Ù‡Ø§ Ù„Ùƒ ÙÙŠ Ø£Ø³Ø±Ø¹ ÙˆÙ‚Øª Ø¥Ù† Ø´Ø§Ø¡ Ø§Ù„Ù„Ù‡',
+            style: Styles.textStyle18,
           ),
-        ),
+          const SizedBox(height: 32),
+          const LastOrderSection(),
+          SizedBox(
+            height: 18,
+          )
+        ],
       ),
     );
   }
 }
-===== C:\Users\DELL\StudioProjects\car_parts_delivery_app\lib\featrues\home\presentation\view\widgets\last_order_section.dart =====
+===== C:\Users\DELL\StudioProjects\car_parts_delivery_app\lib\featrues\home\presentation\view\widgets\my_order_section.dart =====
 import 'package:car_parts_delivery_app/core/utils/styles.dart';
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/custom_last_order_card.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/custom_my_order_card.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/custom_tab_bar.dart';
 import 'package:flutter/material.dart';
 
 class LastOrderSection extends StatelessWidget {
@@ -403,27 +590,26 @@ class LastOrderSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text('Ø§Ù„Ø·Ù„Ø¨Ø§Øª Ø§Ù„Ø³Ø§Ø¨Ù‚Ø©', style: Styles.textStyle26),
-        const SizedBox(height: 16),
-        Container(
-          width: double.infinity,
-          height: 150,
-          decoration: BoxDecoration(
-            color: Colors.grey[200],
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Expanded(
-            child: ListView.builder(
-              itemCount: 5,
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                return CustomLastOrderCard();
-              },
-            ),
-          ),
-        ),
+        Text('Ø·Ù„Ø¨Ø§ØªÙŠ', style: Styles.textStyle26),
+        const SizedBox(height: 8),
+        Expanded(child: CustomTabBar())
       ],
     );
+  }
+}
+
+class MyOrderListView extends StatelessWidget {
+  const MyOrderListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+          itemCount: 5,
+          physics: NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) {
+            return CustomMyOrderCard();
+          },
+        );
   }
 }
 ===== C:\Users\DELL\StudioProjects\car_parts_delivery_app\lib\featrues\home\presentation\view\widgets\order_button.dart =====
@@ -510,6 +696,124 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: HomeViewBody());
+  }
+}
+===== C:\Users\DELL\StudioProjects\car_parts_delivery_app\lib\featrues\notification\presentation\views\widgets\custom_notification_card.dart =====
+
+import 'package:car_parts_delivery_app/core/utils/app_colors.dart';
+import 'package:car_parts_delivery_app/core/utils/styles.dart';
+import 'package:flutter/material.dart';
+
+class CustomNotificationCard extends StatelessWidget {
+  const CustomNotificationCard({super.key,  this.onTap});
+  final VoidCallback? onTap;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.all(15),
+        color: AppColors.primaryColor.withValues(alpha: 0.5),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Ø§Ø³Ù… Ø§Ù„Ù‚Ø·Ø¹Ø©',
+                    style: Styles.textStyle16.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    'Ø¹Ø°Ø±Ø§ØŒ Ø§Ù„Ù‚Ø·Ø¹Ø© Ø§Ù„Ù…Ø·Ù„ÙˆØ¨Ø© ØºÙŠØ± Ù…ØªÙˆÙØ±Ø© ÙÙŠ Ø§Ù„Ø³ÙˆÙ‚ Ø­Ø§Ù„ÙŠØ§.',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: Styles.textStyle16,
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    '1Ø³',
+                    style: Styles.textStyle14.copyWith(
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+===== C:\Users\DELL\StudioProjects\car_parts_delivery_app\lib\featrues\notification\presentation\views\widgets\notification_view_body.dart =====
+import 'package:car_parts_delivery_app/core/utils/styles.dart';
+import 'package:car_parts_delivery_app/featrues/notification/presentation/views/widgets/custom_notification_card.dart';
+import 'package:flutter/material.dart';
+
+class NotificationViewBody extends StatelessWidget {
+  const NotificationViewBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return 
+      
+      CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                SizedBox(height: 25),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Text('Ù‡Ø°Ø§ Ø§Ù„Ø§Ø³Ø¨ÙˆØ¹', style: Styles.textStyle20),
+                ),
+                SizedBox(height: 20),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate((context, index) {
+              return CustomNotificationCard();
+            }, childCount: 10),
+          ),
+        ],
+      )
+    ;
+  }
+}
+===== C:\Users\DELL\StudioProjects\car_parts_delivery_app\lib\featrues\notification\presentation\views\notification_view.dart =====
+import 'package:car_parts_delivery_app/core/utils/app_colors.dart';
+import 'package:car_parts_delivery_app/core/utils/styles.dart';
+import 'package:car_parts_delivery_app/featrues/notification/presentation/views/widgets/notification_view_body.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+class NotificationView extends StatelessWidget {
+  const NotificationView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.primaryColor,
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            GoRouter.of(context).pop();
+          },
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.white, size: 22),
+        ),
+        backgroundColor: AppColors.primaryColor,
+        title: const Text('Ø§Ù„Ø¥Ø´Ø¹Ø§Ø±Ø§Øª', style: Styles.textStyle26),
+      ),
+      body: const NotificationViewBody(),
+    );
   }
 }
 ===== C:\Users\DELL\StudioProjects\car_parts_delivery_app\lib\main.dart =====
