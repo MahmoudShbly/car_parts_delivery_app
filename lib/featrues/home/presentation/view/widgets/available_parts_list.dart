@@ -1,5 +1,5 @@
 import 'package:car_parts_delivery_app/core/utils/styles.dart';
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/custom_current_order_card.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/custom_my_order_card.dart';
 import 'package:flutter/material.dart';
 
 class AvailablePartsList extends StatelessWidget {
@@ -17,7 +17,7 @@ class AvailablePartsList extends StatelessWidget {
           physics: NeverScrollableScrollPhysics(),
           itemCount: 5,
           itemBuilder: (context, index) {
-            return const CustomLastOrderCard();
+            return const CustomMyOrderCard();
           },
         ),
         SizedBox( height: 16)

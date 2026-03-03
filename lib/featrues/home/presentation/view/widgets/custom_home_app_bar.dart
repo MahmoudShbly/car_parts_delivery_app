@@ -1,6 +1,8 @@
+import 'package:car_parts_delivery_app/core/utils/app_router.dart';
 import 'package:car_parts_delivery_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
   const CustomHomeAppBar({super.key});
@@ -11,11 +13,16 @@ class CustomHomeAppBar extends StatelessWidget {
       children: <Widget>[
         Text('مرحبا احمد', style: Styles.textStyle26),
         const Spacer(),
-        Icon(FontAwesomeIcons.solidBell, color: Colors.white, size: 24),
-        SizedBox(
-          width: 16,
+        IconButton(
+          onPressed: () {
+            GoRouter.of(context).push(AppRouter.kNotificationView);
+          },
+          icon: Icon(FontAwesomeIcons.solidBell, color: Colors.white, size: 24),
         ),
-        Icon(FontAwesomeIcons.gears, color: Colors.white, size: 22),
+        IconButton(
+          onPressed: () {},
+          icon: Icon(FontAwesomeIcons.gears, color: Colors.white, size: 22),
+        ),
       ],
     );
   }

@@ -1,5 +1,5 @@
 import 'package:car_parts_delivery_app/core/utils/styles.dart';
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/custom_current_order_card.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/custom_my_order_card.dart';
 import 'package:flutter/material.dart';
 
 class LastOrderSection extends StatelessWidget {
@@ -10,14 +10,14 @@ class LastOrderSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text('الطلبات الحالية', style: Styles.textStyle26),
+        Text('طلباتي', style: Styles.textStyle26),
         const SizedBox(height: 8),
         ListView.builder(
           itemCount: 5,
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
-            return CustomLastOrderCard();
+            return CustomMyOrderCard();
           },
         ),
       ],
