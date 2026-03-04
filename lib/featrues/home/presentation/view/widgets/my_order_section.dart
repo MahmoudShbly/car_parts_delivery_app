@@ -10,14 +10,12 @@ class MyOrderSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.max, 
+      mainAxisSize: MainAxisSize.max,
       children: <Widget>[
         Text('طلباتي', style: Styles.textStyle26),
         const SizedBox(height: 24),
-        const SizedBox(
-          height: 400, 
-          child: CustomTabBar(),
-        )
+
+        Expanded(child: CustomTabBar()),
       ],
     );
   }
@@ -28,15 +26,13 @@ class MyOrderListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        itemCount: 5, 
-       
-        physics: const BouncingScrollPhysics(), 
-        itemBuilder: (context, index) {
-          return const CustomMyOrderCard(); 
-        },
-      ),
+    return ListView.builder(
+      itemCount: 5,
+
+      physics: const BouncingScrollPhysics(),
+      itemBuilder: (context, index) {
+        return const CustomMyOrderCard();
+      },
     );
   }
 }

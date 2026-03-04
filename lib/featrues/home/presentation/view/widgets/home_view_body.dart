@@ -10,29 +10,42 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      //TODO refoctor the scroll to NestedScrollView
-      child: Padding(
-        padding: const EdgeInsets.only(top: 48.0, left: 16.0, right: 16.0),
-        child: Column(
-          children: <Widget>[
-            CustomHomeAppBar(),
-            const SizedBox(height: 32),
-            HomeBannerSlider(),
-            const SizedBox(height: 32),
-            OrderButton(),
-            const SizedBox(height: 16),
-            Text(
-              'اطلب أي قطعة لأي سيارة بسهولة و سنوفرها لك في أسرع وقت إن شاء الله',
-              style: Styles.textStyle18,
+    return NestedScrollView(
+      headerSliverBuilder: (context, innerBoxIsScrolled) {
+        return [
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                top: 48.0,
+                left: 16.0,
+                right: 16.0,
+              ),
+              child: Column(
+                children: <Widget>[
+                  CustomHomeAppBar(),
+                  const SizedBox(height: 32),
+                  HomeBannerSlider(),
+                  const SizedBox(height: 32),
+                  OrderButton(),
+                  const SizedBox(height: 16),
+                  Text(
+                    'اطلب أي قطعة لأي سيارة بسهولة و سنوفرها لك في أسرع وقت إن شاء الله',
+                    style: Styles.textStyle18,
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(height: 32),
-            SizedBox(
-              height: 500, 
-              child: const MyOrderSection(),
-            ),
-          ],
+          ),
+        ];
+      },
+      body: Padding(
+        padding: const EdgeInsets.only(
+          left: 16.0,
+          top: 32,
+          right: 16.0,
+          bottom: 16.0,
         ),
+        child: MyOrderSection(),
       ),
     );
   }

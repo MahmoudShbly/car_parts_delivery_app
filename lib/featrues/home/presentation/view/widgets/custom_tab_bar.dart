@@ -60,7 +60,7 @@ class _CustomTabBarState extends State<CustomTabBar>
             controller: _controller,
           ),
         ),
-        SizedBox(height: 22),
+        SizedBox(height: 8),
         Expanded(
           child: TabBarView(
             controller: _controller,
