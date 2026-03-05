@@ -1,5 +1,5 @@
 import 'package:car_parts_delivery_app/core/utils/app_colors.dart';
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/my_order_section.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/customer/my_order_section.dart';
 import 'package:flutter/material.dart';
 
 class CustomTabBar extends StatefulWidget {

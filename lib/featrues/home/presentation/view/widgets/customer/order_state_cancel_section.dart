@@ -1,7 +1,7 @@
 import 'package:car_parts_delivery_app/core/utils/app_colors.dart';
 import 'package:car_parts_delivery_app/core/utils/app_dialog.dart';
 import 'package:car_parts_delivery_app/core/utils/styles.dart';
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/custom_state_button.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/shared/custom_state_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

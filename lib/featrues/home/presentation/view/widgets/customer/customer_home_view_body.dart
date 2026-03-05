@@ -1,8 +1,8 @@
 import 'package:car_parts_delivery_app/core/utils/styles.dart';
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/custom_home_app_bar.dart';
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/home_banner_slider.dart';
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/my_order_section.dart';
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/order_button.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/shared/custom_home_app_bar.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/customer/home_banner_slider.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/customer/my_order_section.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/customer/order_button.dart';
 import 'package:flutter/material.dart';
 
 class CustomerHomeViewBody extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:car_parts_delivery_app/core/utils/app_colors.dart';
 import 'package:car_parts_delivery_app/core/utils/styles.dart';
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/order_state_cancel_section.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/customer/order_state_cancel_section.dart';
 import 'package:flutter/material.dart';
 
 class CustomMyOrderCard extends StatelessWidget {

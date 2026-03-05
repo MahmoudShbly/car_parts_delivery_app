@@ -1,6 +1,6 @@
 import 'package:car_parts_delivery_app/core/utils/styles.dart';
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/custom_my_order_card.dart';
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/custom_tab_bar.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/shared/custom_my_order_card.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/customer/custom_tab_bar.dart';
 import 'package:flutter/material.dart';
 
 class MyOrderSection extends StatelessWidget {

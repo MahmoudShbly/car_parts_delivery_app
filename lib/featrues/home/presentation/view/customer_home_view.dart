@@ -1,4 +1,4 @@
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/customer_home_view_body.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/customer/customer_home_view_body.dart';
 import 'package:flutter/material.dart';
 
 class CustomerHomeView extends StatelessWidget {
