@@ -5,8 +5,8 @@ import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/m
 import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/order_button.dart';
 import 'package:flutter/material.dart';
 
-class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+class CustomerHomeViewBody extends StatelessWidget {
+  const CustomerHomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class HomeViewBody extends StatelessWidget {
               ),
               child: Column(
                 children: <Widget>[
-                  CustomHomeAppBar(),
+                  CustomHomeAppBar(title: Text('مرحبا احمد', style: Styles.textStyle26),),
                   const SizedBox(height: 32),
                   HomeBannerSlider(),
                   const SizedBox(height: 32),

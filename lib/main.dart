@@ -1,6 +1,6 @@
 import 'package:car_parts_delivery_app/core/utils/app_colors.dart';
 import 'package:car_parts_delivery_app/core/utils/app_router.dart';
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/home_view.dart';
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/customer_home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -41,7 +41,7 @@ class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> screens = [
-      HomeView(),
+      CustomerHomeView(),
       Container(color: Colors.green),
       Container(color: Colors.purple),
     ];

@@ -1,17 +1,17 @@
 import 'package:car_parts_delivery_app/core/utils/app_router.dart';
-import 'package:car_parts_delivery_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
-  const CustomHomeAppBar({super.key});
+  const CustomHomeAppBar({super.key,required this.title});
+  final Widget title;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        Text('مرحبا احمد', style: Styles.textStyle26),
+        title,
         const Spacer(),
         IconButton(
           onPressed: () {
