@@ -11,10 +11,10 @@ class CustomNotificationCard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 8),
+        margin: const EdgeInsets.symmetric(vertical: 8,horizontal: 8),
         decoration: BoxDecoration(
 
-          color: AppColors.primaryColor.withValues(alpha: 0.5),
+          color: AppColors.primaryColor,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(color: AppColors.secondaryColor),
         ),
