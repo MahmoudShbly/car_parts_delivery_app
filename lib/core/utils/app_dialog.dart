@@ -1,6 +1,7 @@
 
 import 'package:car_parts_delivery_app/core/utils/app_colors.dart';
 import 'package:car_parts_delivery_app/core/utils/styles.dart';
+import 'package:car_parts_delivery_app/core/utils/temp.dart';
 import 'package:car_parts_delivery_app/core/widgets/custom_button_component.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -29,7 +30,7 @@ Future<T?> showAppDialog<T>({
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            color: AppColors.primaryColor,
+            color:Temp.isAdmin?Colors.white  : AppColors.primaryColor,
           ),
           
           padding: const EdgeInsets.all(20),
@@ -41,7 +42,7 @@ Future<T?> showAppDialog<T>({
                 Text(
                   message ?? '',
                   textAlign: TextAlign.center,
-                  style: Styles.textStyle18
+                  style: Styles.textStyle18.copyWith(color: Temp.isAdmin ? AppColors.primaryColor : Colors.white),
                 ),
                 if (content != null) ...[
                   const SizedBox(height: 12),

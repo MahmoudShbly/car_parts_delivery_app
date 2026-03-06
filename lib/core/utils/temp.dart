@@ -1,3 +1,3 @@
 abstract class Temp {
-  static const bool isAdmin = false;
+  static const bool isAdmin = true;
 }

@@ -29,4 +29,19 @@ class AdminCubit extends Cubit<AdminState> {
       GoRouter.of(context).push(AppRouter.kAdminCanceledOrderHomeView);
     }
   }
+ int selectedIndex=0;
+
+  final List<String> orderStates = [
+    'قيد المعالجة',
+    'تم العثور',
+    'جار البحث',
+    'مكتملة',
+    'لم يتم العثور ',
+  ];
+
+  void onOrderStateSelected(int index) {
+    selectedIndex = index;
+    emit(OrderStateChanged());
+    
+  }
 }

@@ -1,3 +1,4 @@
+import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/admin/order_list_view.dart';
 import 'package:flutter/material.dart';
 
 class UnFoundOrder extends StatelessWidget {
@@ -6,7 +7,10 @@ class UnFoundOrder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('UnFound Order')),
+      appBar: AppBar(
+        title: const Text(' طلبات غير متوفرة'),
+      ),
+      body: const OrderListView(),
     );
   }
 }

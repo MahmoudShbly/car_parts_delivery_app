@@ -1,5 +1,4 @@
 import 'package:car_parts_delivery_app/core/utils/styles.dart';
-import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/shared/custom_my_order_card.dart';
 import 'package:car_parts_delivery_app/featrues/home/presentation/view/widgets/customer/custom_tab_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -17,22 +16,6 @@ class MyOrderSection extends StatelessWidget {
 
         Expanded(child: CustomTabBar()),
       ],
-    );
-  }
-}
-
-class MyOrderListView extends StatelessWidget {
-  const MyOrderListView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 5,
-
-      physics: const BouncingScrollPhysics(),
-      itemBuilder: (context, index) {
-        return const CustomMyOrderCard();
-      },
     );
   }
 }
